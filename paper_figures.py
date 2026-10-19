@@ -161,7 +161,7 @@ def fig10_sensitivity(T, out):
                         capsize=2, label=LABEL.get(s, s))
         ax.set_title(title, loc="left", fontsize=9)
         if fac == "C": ax.set_xscale("log")
-        if fac == "lambda": ax.set_xlabel("interval width (centred at 0.5)")
+        if fac == "lambda": ax.set_xlabel("interval width (centered at 0.5)")
     axes[0].set_ylabel("Macro-F1 (%)"); axes[-1].legend(fontsize=7.5, loc="lower right")
     _save(fig, out, "Fig10_sensitivity")
 
