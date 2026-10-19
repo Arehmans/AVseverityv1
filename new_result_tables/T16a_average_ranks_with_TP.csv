@@ -1,0 +1,13 @@
+sampler,avg_rank
+None,9.2
+ROS,6.1
+SMOTE,7.6
+SMOTE-TP,3.6
+Borderline-SMOTE,5.9
+Borderline-SMOTE-TP,2.9
+ADASYN,7.9
+ADASYN-TP,4.9
+SMOTE-NC,10.1
+MDST,9.6
+RA-MDST,6.7
+RA-MDST-TP,3.5
