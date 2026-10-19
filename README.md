@@ -21,7 +21,7 @@ On Kaggle, upload `RA_MDST_revision.ipynb`, add the dataset as an Input and use 
 
 | File | Purpose |
 |---|---|
-| `RA_MDST_revision.ipynb` | the single notebook (Sections 1–15) |
+| `RA_MDST_revision.ipynb` | the single notebook (Sections 1–16) |
 | `run_all.py` | runs the notebook headless with the chosen options |
 | `verify_outputs.py` | checks expected files and key values; compares two runs |
 | `expected_values.json` | key values reported in the article, with tolerances |
