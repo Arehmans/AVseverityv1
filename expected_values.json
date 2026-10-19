@@ -340,6 +340,36 @@
    "col": "density",
    "expected": 4.2876,
    "tol": 0.0005
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "near_dup_0.1",
+   "expected": 0.9353,
+   "tol": 0.0001
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "near_dup_0.2",
+   "expected": 0.5245,
+   "tol": 0.0001
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "near_dup_0.3",
+   "expected": 0.038,
+   "tol": 0.0001
   }
  ]
 }

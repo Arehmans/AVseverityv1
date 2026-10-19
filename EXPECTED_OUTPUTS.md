@@ -57,6 +57,8 @@ identical tables (run-time columns ending in `_sec` are ignored).
 | `tables/T16a_linearSVM_with_TP.csv` | Section 4.6 | 16 | linear SVM, twelve samplers |
 | `tables/T16b_tp_statistics.csv` | Section 4.6, Table S3 | 16 | paired tests (Holm within each family of 30) |
 | `tables/T16c_tp_validity_diversity.csv` | Table 11 | 16 | validity and diversity summary of the variants |
+| `tables/T17_near_duplicate_threshold_fold_level.csv` | Table S5 | 17 | near-duplicate rate at f = 0.05, 0.1, 0.2, 0.3, fold level |
+| `tables/T17a_near_duplicate_threshold_summary.csv` | Table S5, Section 4.7 | 17 | near-duplicate rate and rank per threshold |
 
 ## Article figures (drawn from the tables by Section 15 / `paper_figures.py`)
 

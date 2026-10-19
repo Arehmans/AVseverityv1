@@ -1,53 +1,83 @@
-import matplotlib; matplotlib.use("Agg")
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-plt.rcParams.update({"font.family":"DejaVu Sans"})
-W,H=7.2,5.6
-fig=plt.figure(figsize=(W,H)); ax=fig.add_axes([0,0,1,1]); ax.set_xlim(0,W); ax.set_ylim(0,H); ax.axis("off")
-INK="#1f2328"; MUTED="#5b6169"; BLUE="#2b6cb0"; BLUEF="#eaf2fb"; GREEN="#2f855a"; GREENF="#eaf6ef"; ORG="#b7791f"; GREYF="#f3f4f5"
-FS=6.6; TF=7.2
-def box(x,y,w,h,title,lines=(),ec=INK,tc=INK,fs=FS):
-    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle="round,pad=0.01,rounding_size=0.05",fc="white",ec=ec,lw=0.9))
-    ax.text(x+w/2,y+h-0.08,title,ha="center",va="top",fontsize=TF,fontweight="bold",color=tc)
-    for i,l in enumerate(lines):
-        ax.text(x+w/2,y+h-0.30-i*0.17,l,ha="center",va="top",fontsize=fs,color=INK)
-def arr(x1,y1,x2,y2,c=INK,ls="-"):
-    ax.add_patch(FancyArrowPatch((x1,y1),(x2,y2),arrowstyle="-|>",mutation_scale=8,color=c,lw=0.9,ls=ls,shrinkA=0,shrinkB=0))
-def band(y,h,label,fc,ec):
-    ax.add_patch(FancyBboxPatch((0.06,y),W-0.12,h,boxstyle="round,pad=0.01,rounding_size=0.08",fc=fc,ec=ec,lw=0.9))
-    ax.text(0.14,y+h-0.06,label,ha="left",va="top",fontsize=7.4,fontweight="bold",color=ec)
-# A
-band(4.35,1.18,"A  Data and redundancy diagnosis",GREYF,MUTED)
-box(0.18,4.45,2.1,0.8,"1. AV crash dataset",["California DMV, n = 324","189 predictors","Minor 237 · Moderate 52 · None 35"])
-box(2.5,4.45,1.75,0.8,"2. Preprocessing",["Cleaning, encoding","Variable types recorded"])
-box(4.47,4.45,2.55,0.8,"3. Redundancy diagnosis",["Euclidean vs Manhattan top-3",r"$O_i=|N_E(i)\cap N_M(i)|/3$; mean 0.762","MDST unique samples: 29.3%"])
-arr(2.28,4.85,2.5,4.85); arr(4.25,4.85,4.47,4.85)
-# B
-band(1.5,2.75,"B  Protocol B: 10 repeats × 5-fold stratified CV; all steps fitted inside each training fold",BLUEF,BLUE)
-box(0.18,3.0,1.1,0.85,"Training fold",["real records","only (~259)"],ec=BLUE)
-box(0.18,1.62,1.1,0.85,"Test fold",["real records","only (~65)"],ec=BLUE)
-box(1.48,3.0,0.95,0.85,"4. Scaler",["fitted on","training fold"],ec=BLUE)
-box(2.63,3.0,0.95,0.85,"5. RFE-100",["linear SVM,","training fold"],ec=BLUE)
-ax.add_patch(FancyBboxPatch((3.78,2.25),2.1,1.6,boxstyle="round,pad=0.01,rounding_size=0.05",fc="white",ec=ORG,lw=1.1))
-ax.text(4.83,3.77,"6. Oversampling",ha="center",va="top",fontsize=TF,fontweight="bold",color=ORG)
-for i,(l,b) in enumerate([("RA-MDST (proposed):",True),("3 Euclidean + 3 Manhattan-",False),("exclusive neighbors;",False),
-                          (r"bounded pairwise interpolation",False),("RA-MDST-TP: valid discrete values",False)]):
-    ax.text(4.83,3.55-i*0.17,l,ha="center",va="top",fontsize=FS,fontweight="bold" if b else "normal")
-ax.plot([3.9,5.76],[2.68,2.68],color="#aaa",lw=0.5)
-ax.text(4.83,2.63,"Comparators: MDST, ROS, SMOTE,",ha="center",va="top",fontsize=6.1,color=MUTED)
-ax.text(4.83,2.46,"B-SMOTE, ADASYN, SMOTE-NC, none",ha="center",va="top",fontsize=6.1,color=MUTED)
-box(6.05,3.0,0.97,0.85,"7. Classifier",["10 models"],ec=BLUE)
-box(6.05,1.62,0.97,0.85,"8. Predict",["test fold","(real only)"],ec=BLUE)
-arr(1.28,3.42,1.48,3.42,BLUE); arr(2.43,3.42,2.63,3.42,BLUE); arr(3.58,3.42,3.78,3.42,BLUE); arr(5.88,3.42,6.05,3.42,BLUE)
-arr(6.535,3.0,6.535,2.47,BLUE)
-arr(1.28,1.9,6.05,1.9,BLUE,"--")
-ax.text(2.55,1.86,"transformed with training-fold scaler and features;",ha="center",va="top",fontsize=6.0,color=BLUE)
-ax.text(2.55,1.70,"never used for fitting or oversampling",ha="center",va="top",fontsize=6.0,color=BLUE)
-arr(0.73,4.45,0.73,3.85,MUTED)
-# C
-band(0.06,1.36,"C  Analysis (all claims based on Protocol B)",GREENF,GREEN)
-box(0.18,0.16,2.2,0.95,"Predictive performance",["accuracy, macro-F1, balanced","accuracy, QWK; corrected tests,","Holm, 95% CI, effect sizes"],ec=GREEN)
-box(2.5,0.16,2.2,0.95,"Synthetic-data quality",["uniqueness, near-duplicates,","spread, intrusion,","invalid values"],ec=GREEN)
-box(4.82,0.16,2.2,0.95,"Robustness",["ablation, sensitivity, nested CV,","partial balancing, ordinal,","SHAP, 6 benchmarks"],ec=GREEN)
-arr(6.535,1.62,6.535,1.42,GREEN); arr(4.3,2.25,4.3,1.42,ORG)
-fig.savefig("Fig1_workflow_protocolB.pdf"); fig.savefig("Fig1_workflow_protocolB.png",dpi=300)
+from matplotlib.patches import Rectangle, FancyArrowPatch
+from matplotlib import font_manager as fm
+
+plt.rcParams.update({"font.family": "Liberation Serif",      # Times-metric TrueType font (matches the article text)
+                     "mathtext.fontset": "stix", "pdf.fonttype": 42})
+
+W, H = 6.37, 4.75                       # inches = printed size (text width of the article)
+fig = plt.figure(figsize=(W, H)); ax = fig.add_axes([0, 0, 1, 1])
+ax.set_xlim(0, W); ax.set_ylim(0, H); ax.axis("off")
+K = "#000000"; G = "#e6e6e6"; LW = 0.8
+FS, FT = 9, 9.5                          # body / box-title font size in points
+
+def box(x, y, w, h, title=None, lines=(), fill="white", fs=FS, bold_title=True, dy=0.155):
+    ax.add_patch(Rectangle((x, y), w, h, fc=fill, ec=K, lw=LW))
+    n = (1 if title else 0) + len(lines)
+    y0 = y + h / 2 + (n - 1) * dy / 2
+    if title:
+        ax.text(x + w / 2, y0, title, ha="center", va="center", fontsize=FT, fontweight="bold" if bold_title else "normal")
+        y0 -= dy
+    for l in lines:
+        ax.text(x + w / 2, y0, l, ha="center", va="center", fontsize=fs); y0 -= dy
+
+def arrow(x1, y1, x2, y2, ls="-"):
+    ax.add_patch(FancyArrowPatch((x1, y1), (x2, y2), arrowstyle="-|>", mutation_scale=7, lw=LW, color=K,
+                                 linestyle=ls, shrinkA=0, shrinkB=0))
+
+# ---- row 1: data and descriptive diagnosis
+y1, h1 = 3.92, 0.72
+box(0.05, y1, 1.85, h1, "AV crash reports", ["California DMV, $n$ = 324", "189 predictors, 3 classes"])
+box(2.15, y1, 1.45, h1, "Preprocessing", ["encoding;", "variable types"])
+box(3.85, y1, 2.47, h1, "Redundancy diagnosis", ["Euclidean vs Manhattan top-3", r"neighbors; overlap $O_i$ (mean 0.76)"])
+arrow(1.90, y1 + h1 / 2, 2.15, y1 + h1 / 2); arrow(3.60, y1 + h1 / 2, 3.85, y1 + h1 / 2)
+
+# ---- Protocol B frame
+fx, fy, fw, fh = 0.05, 1.18, 6.27, 2.48
+ax.add_patch(Rectangle((fx, fy), fw, fh, fc="none", ec=K, lw=LW, ls=(0, (4, 2))))
+ax.text(fx + fw - 0.08, fy + 0.13, "Protocol B: repeated for 50 outer folds (10 × 5-fold CV); every step is fitted on the training fold only",
+        ha="right", va="center", fontsize=FS - 0.5, style="italic")
+arrow(0.975, y1, 0.975, 3.24)
+
+yt, ht = 2.62, 0.62                       # training path
+box(0.30, yt, 1.35, ht, "Training fold", ["real records only"])
+box(1.83, yt, 0.92, ht, "Standardize", [])
+box(2.93, yt, 0.92, ht, "RFE", ["100 features"])
+box(5.27, yt, 0.95, ht, "Classifier", ["10 models"])
+arrow(1.65, yt + ht / 2, 1.83, yt + ht / 2); arrow(2.75, yt + ht / 2, 2.93, yt + ht / 2)
+
+# oversampling step (the proposed method, light grey)
+ox, ow, oh = 4.03, 1.06, 0.98
+oy = yt + ht / 2 - oh / 2
+ax.add_patch(Rectangle((ox, oy), ow, oh, fc=G, ec=K, lw=LW))
+for i, (l, bold) in enumerate([("Oversample", True), ("RA-MDST or", False), ("RA-MDST-TP", False), ("(or a comparator)", False)]):
+    ax.text(ox + ow / 2, oy + oh - 0.17 - i * 0.215, l, ha="center", va="center",
+            fontsize=FT if bold else (FS - 0.5 if i == 3 else FS), fontweight="bold" if bold else "normal")
+arrow(3.85, yt + ht / 2, ox, yt + ht / 2); arrow(ox + ow, yt + ht / 2, 5.27, yt + ht / 2)
+
+yv = 1.42                                  # test path
+box(0.30, yv, 1.35, ht, "Test fold", ["real records only"])
+box(5.27, yv, 0.95, ht, "Predict", [])
+arrow(5.745, yt, 5.745, yv + ht)
+ax.annotate("", xy=(5.27, yv + ht / 2), xytext=(1.65, yv + ht / 2),
+            arrowprops=dict(arrowstyle="-|>", mutation_scale=7, lw=LW, color=K, linestyle=(0, (3, 2)), shrinkA=0, shrinkB=0))
+ax.text(3.46, yv + ht / 2 + 0.12, "scaled and reduced with the training-fold parameters;", ha="center", va="center", fontsize=FS - 0.5)
+ax.text(3.46, yv + ht / 2 - 0.12, "never used for fitting or oversampling", ha="center", va="center", fontsize=FS - 0.5)
+
+# ---- evaluation row
+ye, he = 0.05, 0.86
+box(0.05, ye, 2.00, he, "Prediction", ["macro-F1, balanced accuracy,", "corrected tests (Holm)"])
+box(2.185, ye, 2.00, he, "Synthetic data", ["validity, duplicates,", "diversity, intrusion"])
+box(4.32, ye, 2.00, he, "Robustness", ["ablation, sensitivity,", "nested CV, benchmarks"])
+# one bracket from the fold loop to the three evaluation boxes
+xb = 3.185
+ax.plot([xb, xb], [fy, 1.03], color=K, lw=LW)
+ax.plot([1.05, 5.32], [1.03, 1.03], color=K, lw=LW)
+for xc in (1.05, 3.185, 5.32):
+    arrow(xc, 1.03, xc, ye + he)
+ax.text(xb + 0.06, 1.10, "fold-level results", ha="left", va="center", fontsize=FS - 0.5, style="italic")
+
+for ext, kw in (("pdf", {}), ("png", {"dpi": 300})):
+    fig.savefig(f"Fig1_workflow_protocolB.{ext}", **kw)
