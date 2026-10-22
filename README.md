@@ -2,11 +2,20 @@
 
 Everything in the article's results section is produced by one notebook, `RA_MDST_revision.ipynb`.
 
+## Data
+
+`data/AV_crash_severity_deidentified.csv` is the public, de-identified version of the processed dataset of
+Shafique et al. (IEEE Access, 2024): 324 crash reports, 184 predictors and the target column `target`
+(0 = Minor, 1 = Moderate, 2 = None). See `DATA.md` for its source, the preprocessing and the fields that were removed.
+The article's main results were computed on the full processed file (189 predictors), which contains fields that could
+help locate the source reports and is therefore available from the authors on reasonable request for research use.
+Running the notebook on the public file reproduces Supplementary Table S6 of the article (results without the removed fields).
+
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
-python run_all.py --data data/NN_MissingHandlingdataset.csv          # full run, about 60–90 min on 4 CPU cores
+python run_all.py --data data/AV_crash_severity_deidentified.csv          # full run, about 60–90 min on 4 CPU cores
 python verify_outputs.py --out revision_results                      # runs automatically after a full run
 ```
 

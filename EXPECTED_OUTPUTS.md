@@ -1,6 +1,6 @@
 # Expected outputs
 
-`python run_all.py --data <path>/NN_MissingHandlingdataset.csv` (FULL mode, base seed 42) writes everything below to
+`python run_all.py --data <path>/AV_crash_severity_deidentified.csv` (FULL mode, base seed 42) writes everything below to
 `revision_results/`. Each row gives the article item it supports and the notebook section that produces it.
 A section can be regenerated on its own with `--sections N`; sections 4, 5 and 15 read the Protocol B results of
 Section 3 from its checkpoint, so run Section 3 first (or keep its checkpoint).

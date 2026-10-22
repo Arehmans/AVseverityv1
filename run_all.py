@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Regenerate every table and figure of the RA-MDST article with one command.
 
-    python run_all.py --data data/NN_MissingHandlingdataset.csv            # full run (paper numbers, ~60-90 min on 4 cores)
-    python run_all.py --data data/NN_MissingHandlingdataset.csv --quick    # smoke test (~5 min)
+    python run_all.py --data data/AV_crash_severity_deidentified.csv            # full run (~60-90 min on 4 cores)
+    python run_all.py --data data/AV_crash_severity_deidentified.csv --quick    # smoke test (~5 min)
     python run_all.py --data ... --sections 3,4                            # regenerate selected sections only
     python run_all.py --data ... --fresh                                   # ignore checkpoints, recompute everything
 
@@ -16,7 +16,7 @@ NB = HERE / "RA_MDST_revision.ipynb"
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--data", required=True, help="path to NN_MissingHandlingdataset.csv")
+    ap.add_argument("--data", required=True, help="path to the dataset CSV")
     ap.add_argument("--out", default=str(HERE / "revision_results"), help="output folder")
     ap.add_argument("--quick", action="store_true", help="fast smoke test (QUICK mode; numbers differ from the paper)")
     ap.add_argument("--sections", default="", help="comma-separated section numbers, e.g. 3,4 (default: all 1-14)")
