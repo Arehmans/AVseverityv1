@@ -1,0 +1,375 @@
+{
+ "_note": "Key values reported in the article (FULL run, base seed 42). verify_outputs.py checks each within 'tol'. Percent values are in percentage points.",
+ "checks": [
+  {
+   "paper": "Table 4 / Fig. 3",
+   "file": "tables/T01_overlap_distribution_all_observations.csv",
+   "where": {
+    "shared": 0
+   },
+   "col": "n_observations",
+   "expected": 3,
+   "tol": 0
+  },
+  {
+   "paper": "Table 4 / Fig. 3",
+   "file": "tables/T01_overlap_distribution_all_observations.csv",
+   "where": {
+    "shared": 1
+   },
+   "col": "n_observations",
+   "expected": 35,
+   "tol": 0
+  },
+  {
+   "paper": "Table 4 / Fig. 3",
+   "file": "tables/T01_overlap_distribution_all_observations.csv",
+   "where": {
+    "shared": 2
+   },
+   "col": "n_observations",
+   "expected": 152,
+   "tol": 0
+  },
+  {
+   "paper": "Table 4 / Fig. 3",
+   "file": "tables/T01_overlap_distribution_all_observations.csv",
+   "where": {
+    "shared": 3
+   },
+   "col": "n_observations",
+   "expected": 134,
+   "tol": 0
+  },
+  {
+   "paper": "Table 6",
+   "file": "tables/T02a_protocolA_seed42_reproduction.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "accuracy",
+   "expected": 90.58,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 6",
+   "file": "tables/T02a_protocolA_seed42_reproduction.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "accuracy",
+   "expected": 92.41,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 6",
+   "file": "tables/T02a_protocolA_seed42_reproduction.csv",
+   "where": {
+    "sampler": "ROS"
+   },
+   "col": "accuracy",
+   "expected": 92.55,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 7",
+   "file": "tables/T02b_protocolA_seed_sweep.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "accuracy_mean",
+   "expected": 92.53,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 7",
+   "file": "tables/T02b_protocolA_seed_sweep.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "accuracy_mean",
+   "expected": 90.42,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 8",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "None"
+   },
+   "col": "f1_macro",
+   "expected": 55.38,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 8",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "f1_macro",
+   "expected": 54.64,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 8",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "f1_macro",
+   "expected": 54.19,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 8",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.92,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 8",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "None"
+   },
+   "col": "accuracy",
+   "expected": 69.91,
+   "tol": 0.01
+  },
+  {
+   "paper": "Fig. 7",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "RA-MDST-TP",
+   "expected": 54.66,
+   "tol": 0.01
+  },
+  {
+   "paper": "Fig. 7",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "MDST",
+   "expected": 37.59,
+   "tol": 0.01
+  },
+  {
+   "paper": "Fig. 7",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "avg_rank",
+   "expected": 2.3,
+   "tol": 0.005
+  },
+  {
+   "paper": "Table 9",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "comparison": "RA-MDST-TP − MDST",
+    "metric": "f1_macro",
+    "classifier": "RandomForest"
+   },
+   "col": "delta_pp",
+   "expected": 17.0787,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table 9",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "comparison": "RA-MDST-TP − MDST",
+    "metric": "f1_macro",
+    "classifier": "RandomForest"
+   },
+   "col": "p_nb_holm",
+   "expected": 0.0027,
+   "tol": 0.0001
+  },
+  {
+   "paper": "Table 10",
+   "file": "tables/T05_ablation_protocolB.csv",
+   "where": {
+    "classifier": "RandomForest",
+    "sampler": "Abl-InterpOnly"
+   },
+   "col": "f1_macro_mean",
+   "expected": 45.33,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 5",
+   "file": "tables/T06a_validity_summary.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "pct_invalid_values",
+   "expected": 23.68,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 5",
+   "file": "tables/T06a_validity_summary.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "pct_invalid_values",
+   "expected": 0.0,
+   "tol": 0.0
+  },
+  {
+   "paper": "Table 12",
+   "file": "tables/T07a_diversity_summary.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "unique_ratio",
+   "expected": 0.293,
+   "tol": 0.0005
+  },
+  {
+   "paper": "Table 12",
+   "file": "tables/T07a_diversity_summary.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "intrusion_rate",
+   "expected": 0.117,
+   "tol": 0.0005
+  },
+  {
+   "paper": "Table 13",
+   "file": "tables/T08b_sensitivity_ranges.csv",
+   "where": {
+    "factor": "k",
+    "sampler": "RA-MDST"
+   },
+   "col": "range_pp",
+   "expected": 0.54,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 14",
+   "file": "tables/T09a_nested_cv_summary.csv",
+   "where": {
+    "sampler": "None"
+   },
+   "col": "f1_macro_mean",
+   "expected": 53.38,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 14",
+   "file": "tables/T09a_nested_cv_summary.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "f1_macro_mean",
+   "expected": 52.78,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 16",
+   "file": "tables/T13b_external_macroF1_matrix.csv",
+   "where": {
+    "dataset": "ecoli",
+    "classifier": "LinearSVM"
+   },
+   "col": "MDST",
+   "expected": 79.6,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table 9",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "comparison": "RA-MDST-TP − MDST",
+    "metric": "f1_macro",
+    "classifier": "RandomForest"
+   },
+   "col": "p_nb_holm_table9_60tests",
+   "expected": 0.0157,
+   "tol": 0.0002
+  },
+  {
+   "paper": "Table 11",
+   "file": "tables/T16a_average_ranks_with_TP.csv",
+   "where": {
+    "sampler": "Borderline-SMOTE-TP"
+   },
+   "col": "avg_rank",
+   "expected": 2.9,
+   "tol": 0.005
+  },
+  {
+   "paper": "Table 11",
+   "file": "tables/T16a_average_ranks_with_TP.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "avg_rank",
+   "expected": 3.5,
+   "tol": 0.005
+  },
+  {
+   "paper": "Table 11",
+   "file": "tables/T16c_tp_validity_diversity.csv",
+   "where": {
+    "sampler": "SMOTE-TP"
+   },
+   "col": "pct_invalid_values",
+   "expected": 0.0,
+   "tol": 0.0
+  },
+  {
+   "paper": "Table S1",
+   "file": "tables/T07a_diversity_summary.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "density",
+   "expected": 4.2876,
+   "tol": 0.0005
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "near_dup_0.1",
+   "expected": 0.9353,
+   "tol": 0.0001
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "near_dup_0.2",
+   "expected": 0.5245,
+   "tol": 0.0001
+  },
+  {
+   "paper": "Table S5",
+   "file": "tables/T17a_near_duplicate_threshold_summary.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "near_dup_0.3",
+   "expected": 0.038,
+   "tol": 0.0001
+  }
+ ]
+}

@@ -1,0 +1,455 @@
+{
+ "_note": "Key values of Supplementary Table S6 for the PUBLIC de-identified file (data/AV_crash_severity_deidentified.csv, 184 predictors), produced by: python run_all.py --data data/AV_crash_severity_deidentified.csv --sections 3,4 --out results_public. These differ from expected_values.json, which holds the article's main results on the full 189-predictor file.",
+ "dataset": "public_184",
+ "files": [
+  "tables/T03_protocolB_fold_results.csv",
+  "tables/T03b_protocolB_macroF1_matrix.csv",
+  "tables/T03c_protocolB_LinearSVM_table.csv",
+  "tables/T04_pairwise_statistics.csv",
+  "tables/T04b_friedman_average_ranks.csv",
+  "tables/T04c_holm_survival_summary.csv"
+ ],
+ "checks": [
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "None"
+   },
+   "col": "f1_macro",
+   "expected": 56.78,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "None"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.85,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "None",
+   "expected": 40.0,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "None"
+   },
+   "col": "avg_rank",
+   "expected": 6.5,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "ROS"
+   },
+   "col": "f1_macro",
+   "expected": 56.21,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "ROS"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.68,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "ROS",
+   "expected": 53.37,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "ROS"
+   },
+   "col": "avg_rank",
+   "expected": 3.0,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "SMOTE"
+   },
+   "col": "f1_macro",
+   "expected": 56.16,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "SMOTE"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.72,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "SMOTE",
+   "expected": 45.88,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "SMOTE"
+   },
+   "col": "avg_rank",
+   "expected": 4.7,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "Borderline-SMOTE"
+   },
+   "col": "f1_macro",
+   "expected": 55.73,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "Borderline-SMOTE"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.24,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "Borderline-SMOTE",
+   "expected": 45.29,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "Borderline-SMOTE"
+   },
+   "col": "avg_rank",
+   "expected": 4.9,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "ADASYN"
+   },
+   "col": "f1_macro",
+   "expected": 56.15,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "ADASYN"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.72,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "ADASYN",
+   "expected": 46.19,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "ADASYN"
+   },
+   "col": "avg_rank",
+   "expected": 4.5,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "SMOTE-NC"
+   },
+   "col": "f1_macro",
+   "expected": 54.46,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "SMOTE-NC"
+   },
+   "col": "balanced_accuracy",
+   "expected": 54.24,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "SMOTE-NC",
+   "expected": 45.63,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "SMOTE-NC"
+   },
+   "col": "avg_rank",
+   "expected": 7.6,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "f1_macro",
+   "expected": 56.02,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "MDST"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.56,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "MDST",
+   "expected": 38.08,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "MDST"
+   },
+   "col": "avg_rank",
+   "expected": 7.4,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "f1_macro",
+   "expected": 56.17,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST"
+   },
+   "col": "balanced_accuracy",
+   "expected": 56.73,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "RA-MDST",
+   "expected": 48.25,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "RA-MDST"
+   },
+   "col": "avg_rank",
+   "expected": 4.4,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 (linear SVM macro-F1)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "f1_macro",
+   "expected": 56.79,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (linear SVM bal. acc.)",
+   "file": "tables/T03c_protocolB_LinearSVM_table.csv",
+   "where": {
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "balanced_accuracy",
+   "expected": 59.61,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (random forest macro-F1)",
+   "file": "tables/T03b_protocolB_macroF1_matrix.csv",
+   "where": {
+    "classifier": "RandomForest"
+   },
+   "col": "RA-MDST-TP",
+   "expected": 52.64,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 (average rank)",
+   "file": "tables/T04b_friedman_average_ranks.csv",
+   "where": {
+    "metric": "f1_macro",
+    "sampler": "RA-MDST-TP"
+   },
+   "col": "avg_rank",
+   "expected": 2.0,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 caption (paired test)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − MDST",
+    "classifier": "RBFSVM"
+   },
+   "col": "delta_pp",
+   "expected": 18.47,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 caption (Holm, 60 tests)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − MDST",
+    "classifier": "RBFSVM"
+   },
+   "col": "p_nb_holm_table9_60tests",
+   "expected": 0.013,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 caption (paired test)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − MDST",
+    "classifier": "RandomForest"
+   },
+   "col": "delta_pp",
+   "expected": 14.56,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 caption (Holm, 60 tests)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − MDST",
+    "classifier": "RandomForest"
+   },
+   "col": "p_nb_holm_table9_60tests",
+   "expected": 0.122,
+   "tol": 0.001
+  },
+  {
+   "paper": "Table S6 caption (paired test)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − None",
+    "classifier": "RBFSVM"
+   },
+   "col": "delta_pp",
+   "expected": 25.04,
+   "tol": 0.01
+  },
+  {
+   "paper": "Table S6 caption (Holm, 60 tests)",
+   "file": "tables/T04_pairwise_statistics.csv",
+   "where": {
+    "metric": "f1_macro",
+    "comparison": "RA-MDST-TP − None",
+    "classifier": "RBFSVM"
+   },
+   "col": "p_nb_holm_table9_60tests",
+   "expected": 0.0,
+   "tol": 0.001
+  }
+ ]
+}
